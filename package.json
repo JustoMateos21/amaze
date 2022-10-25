@@ -1,6 +1,9 @@
 {
   "name": "amaze",
   "version": "1.0.0",
+  "engines": {
+    "node": "16.13.1"
+  },
   "description": "#FULL STACK APP SIMILAR TO AMAZON",
   "main": "index.js",
   "scripts": {
