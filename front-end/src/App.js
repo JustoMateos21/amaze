@@ -44,7 +44,7 @@ function App() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const { data } = await axios.get(`/api/products/categories`);
+        const { data } = await axios.get("/api/products/categories");
         setCategories(data);
       } catch (err) {
         toast.error(getError(err));
@@ -124,7 +124,7 @@ function App() {
             {categories.map((category) => (
               <Nav.Item key={category}>
                 <LinkContainer
-                  to={{ pathname: "/search", query: { category: category } }}
+                  to={{ pathname: "/search", search: `?category=${category}` }}
                   onClick={() => setSidebarIsOpen(false)}
                 >
                   <Nav.Link>{category}</Nav.Link>

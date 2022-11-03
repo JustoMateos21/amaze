@@ -146,23 +146,12 @@ function SearchScreen() {
     const filterRating = filter.rating || rating;
     const filterPrice = filter.price || price;
     const sortOrder = filter.order || order;
-
     return {
       pathname: "/search",
-      params: { category: filterCategory },
-      params: { query: filterQuery },
-      params: { price: filterPrice },
-      params: { rating: filterRating },
-      params: { order: sortOrder },
-      params: { page: filterPage },
+      search: `?category=${filterCategory}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`,
     };
-
-    // `/search?category=${filterCategory}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`;
   };
 
-  const clickin = () => {
-    console.log(products);
-  };
   return (
     <div>
       <Helmet>
@@ -283,12 +272,12 @@ function SearchScreen() {
                   </select>
                 </Col>
               </Row>
-              {products?.length === 0 && (
+              {products.length === 0 && (
                 <MessageBox>No Product Found</MessageBox>
               )}
-              <Button onClick={clickin}></Button>
+
               <Row>
-                {products?.map((product) => (
+                {products.map((product) => (
                   <Col sm={6} lg={4} className="mb-3" key={product._id}>
                     <Product product={product}></Product>
                   </Col>
